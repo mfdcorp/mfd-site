@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/img"
+public_folder: "/assets/img"
+
+locale: "ja"
+
+collections:
+  - name: "site"
+    label: "会社情報・サイト全体設定"
+    files:
+      - file: "src/_data/site.json"
+        label: "会社情報"
+        name: "site"
+        fields:
+          - { label: "会社名", name: "company_name", widget: "string" }
+          - { label: "会社名（英語）", name: "company_name_en", widget: "string", required: false }
+          - { label: "キャッチコピー（トップに大きく表示）", name: "tagline", widget: "string" }
+          - { label: "サイト説明文", name: "description", widget: "text" }
+          - { label: "代表者", name: "representative", widget: "string" }
+          - { label: "郵便番号", name: "address_zip", widget: "string" }
+          - { label: "住所", name: "address", widget: "string" }
+          - { label: "設立年月日", name: "founded", widget: "string" }
+          - { label: "資本金", name: "capital", widget: "string" }
+          - { label: "法人番号", name: "corporate_number", widget: "string", required: false }
+          - { label: "事業内容", name: "business_description", widget: "text" }
+          - { label: "メールアドレス", name: "email", widget: "string" }
+          - { label: "事業承継のお知らせ文（トップに表示）", name: "successor_notice", widget: "text", required: false }
+
+  - name: "products"
+    label: "商品"
+    label_singular: "商品"
+    folder: "src/products"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "商品名", name: "title", widget: "string" }
+      - { label: "短い説明（カード表示用）", name: "summary", widget: "text" }
+      - { label: "詳細説明", name: "body", widget: "text", required: false }
+      - { label: "価格（例：1,500円）", name: "price", widget: "string", required: false }
+      - { label: "表示順", name: "order", widget: "number", default: 99 }
+
+  - name: "news"
+    label: "お知らせ"
+    label_singular: "お知らせ"
+    folder: "src/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "タイトル", name: "title", widget: "string" }
+      - { label: "公開日", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "本文（Markdown対応）", name: "body", widget: "markdown" }

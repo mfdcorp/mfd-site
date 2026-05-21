@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: ホーム
+permalink: /
+---
+
+<section class="hero">
+  <div class="container">
+    <h1>{{ site.tagline }}</h1>
+    <p>{{ site.description }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="notice">
+      {{ site.successor_notice }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>商品ラインナップ</h2>
+    <div class="products">
+      {% for product in collections.products %}
+      <div class="product-card">
+        <h3>{{ product.data.title }}</h3>
+        <p>{{ product.data.summary }}</p>
+        {% if product.data.price %}<p class="price">{{ product.data.price }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="cta">
+      <a class="btn" href="/products/">商品一覧を見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>お知らせ</h2>
+    <ul class="news-list">
+      {% for post in collections.news %}
+        {% if loop.index <= 5 %}
+        <li>
+          <time>{{ post.date | dateJP }}</time>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <div class="cta">
+      <a class="btn" href="/news/">すべてのお知らせ</a>
+    </div>
+  </div>
+</section>

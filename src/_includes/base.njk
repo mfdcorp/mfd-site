@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.company_name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="/">MFD</a>
+      <nav class="nav">
+        <a href="/">ホーム</a>
+        <a href="/company/">会社概要</a>
+        <a href="/products/">商品</a>
+        <a href="/news/">お知らせ</a>
+        <a href="/contact/">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-company">{{ site.company_name }}</p>
+      <p class="footer-address">〒{{ site.address_zip }} {{ site.address }}</p>
+      <p class="footer-copyright">&copy; {{ currentYear }} {{ site.company_name }}</p>
+    </div>
+  </footer>
+</body>
+</html>

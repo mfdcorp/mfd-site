@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: 商品紹介
+permalink: /products/
+---
+
+<section class="hero">
+  <div class="container">
+    <h1>商品紹介</h1>
+    <p>Products</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="products">
+      {% for product in collections.products %}
+      <div class="product-card">
+        <h3>{{ product.data.title }}</h3>
+        <p>{{ product.data.summary }}</p>
+        {% if product.data.body %}<p style="margin-top:12px;">{{ product.data.body }}</p>{% endif %}
+        {% if product.data.price %}<p class="price">{{ product.data.price }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="notice" style="margin-top:48px;">
+      ご購入のお問い合わせは <a href="mailto:{{ site.email }}">{{ site.email }}</a> までご連絡ください。<br>
+      （オンライン販売は順次対応予定です）
+    </div>
+  </div>
+</section>

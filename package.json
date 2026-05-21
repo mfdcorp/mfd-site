@@ -1,0 +1,13 @@
+{
+  "name": "mfd-site",
+  "version": "1.0.0",
+  "description": "株式会社MFD コーポレートサイト",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve --quiet",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
