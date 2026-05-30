@@ -29,6 +29,7 @@ collections:
           - { label: "事業内容", name: "business_description", widget: "text" }
           - { label: "メールアドレス", name: "email", widget: "string" }
           - { label: "事業承継のお知らせ文（トップに表示）", name: "successor_notice", widget: "text", required: false }
+          - { label: "トップページのメイン画像（任意）", name: "hero_image", widget: "image", required: false, hint: "横長の写真がおすすめ。1600px幅程度が目安" }
 
   - name: "products"
     label: "商品"
@@ -40,6 +41,7 @@ collections:
     format: "frontmatter"
     fields:
       - { label: "商品名", name: "title", widget: "string" }
+      - { label: "商品写真", name: "image", widget: "image", required: false, hint: "正方形〜横長の写真がおすすめ。800〜1500px程度" }
       - { label: "短い説明（カード表示用）", name: "summary", widget: "text" }
       - { label: "詳細説明", name: "body", widget: "text", required: false }
       - { label: "価格（例：1,500円）", name: "price", widget: "string", required: false }

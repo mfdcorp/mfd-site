@@ -4,7 +4,7 @@ title: ホーム
 permalink: /
 ---
 
-<section class="hero">
+<section class="hero{% if site.hero_image %} hero-with-image{% endif %}"{% if site.hero_image %} style="background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('{{ site.hero_image }}');"{% endif %}>
   <div class="container">
     <h1>{{ site.tagline }}</h1>
     <p>{{ site.description }}</p>
@@ -25,6 +25,9 @@ permalink: /
     <div class="products">
       {% for product in collections.products %}
       <div class="product-card">
+        {% if product.data.image %}
+        <img src="{{ product.data.image }}" alt="{{ product.data.title }}" class="product-image">
+        {% endif %}
         <h3>{{ product.data.title }}</h3>
         <p>{{ product.data.summary }}</p>
         {% if product.data.price %}<p class="price">{{ product.data.price }}</p>{% endif %}

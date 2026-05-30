@@ -63,6 +63,11 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--color-soft);
   text-align: center;
 }
+.hero-with-image {
+  background-size: cover;
+  background-position: center;
+  padding: 140px 0 120px;
+}
 .hero h1 {
   font-size: 36px;
   margin: 0 0 16px;
@@ -102,6 +107,14 @@ img { max-width: 100%; height: auto; display: block; }
   transition: transform 0.2s;
 }
 .product-card:hover { transform: translateY(-2px); }
+.product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: -28px -28px 20px;
+  width: calc(100% + 56px);
+  display: block;
+}
 .product-card h3 { margin: 0 0 12px; font-size: 18px; }
 .product-card p { margin: 0; color: var(--color-muted); font-size: 14px; }
 .product-card .price { color: var(--color-text); font-weight: 600; margin-top: 12px; }
