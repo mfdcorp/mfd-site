@@ -18,6 +18,7 @@ collections:
         fields:
           - { label: "会社名", name: "company_name", widget: "string" }
           - { label: "会社名（英語）", name: "company_name_en", widget: "string", required: false }
+          - { label: "ロゴ画像（ヘッダーに表示）", name: "logo", widget: "image", required: false, hint: "横長 or 正方形。PNG透過推奨。高さ40px程度で表示されます" }
           - { label: "キャッチコピー（トップに大きく表示）", name: "tagline", widget: "string" }
           - { label: "サイト説明文", name: "description", widget: "text" }
           - { label: "代表者", name: "representative", widget: "string" }

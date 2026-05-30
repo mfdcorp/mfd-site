@@ -10,7 +10,13 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="/">MFD</a>
+      <a class="logo" href="/">
+        {% if site.logo %}
+          <img src="{{ site.logo }}" alt="{{ site.company_name }}" class="logo-img">
+        {% else %}
+          MFD
+        {% endif %}
+      </a>
       <nav class="nav">
         <a href="/">ホーム</a>
         <a href="/company/">会社概要</a>
