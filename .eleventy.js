@@ -7,6 +7,10 @@ module.exports = function (eleventyConfig) {
     return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
   });
 
+  eleventyConfig.addFilter("dateISO", (dateObj) => {
+    return new Date(dateObj).toISOString().slice(0, 10);
+  });
+
   eleventyConfig.addCollection("news", (collection) =>
     collection.getFilteredByGlob("src/news/*.md").sort((a, b) => b.date - a.date)
   );

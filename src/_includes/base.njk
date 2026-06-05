@@ -5,7 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title %}{{ title }} | {% endif %}{{ site.company_name }}</title>
   <meta name="description" content="{{ description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.company_name }}">
+  <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ site.company_name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  {% if site.hero_image %}<meta property="og:image" content="{{ site.url }}{{ site.hero_image }}">{% elif site.logo %}<meta property="og:image" content="{{ site.url }}{{ site.logo }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="alternate" type="application/rss+xml" title="{{ site.company_name }} お知らせ" href="/feed.xml">
   <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.company_name }}",
+    "url": "{{ site.url }}",
+    {% if site.logo %}"logo": "{{ site.url }}{{ site.logo }}",{% endif %}
+    "email": "{{ site.email }}",
+    "address": {
+      "@type": "PostalAddress",
+      "postalCode": "{{ site.address_zip }}",
+      "addressCountry": "JP",
+      "streetAddress": "{{ site.address }}"
+    },
+    "description": "{{ site.description }}"
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
